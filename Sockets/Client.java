@@ -62,8 +62,15 @@ public class Client
         } 
     } 
   
-    public static void main(String args[]) 
+    public static void main(String args[]) throws IOException
     { 
-        Client client = new Client("192.168.2.9", 5000);   //192.168.2.9 
+        BufferedReader reader =  new BufferedReader(new InputStreamReader(System.in)); 
+         
+        // Reading data using readLine 
+        System.out.print("Enter ip address ");
+        String ip = reader.readLine();
+        System.out.print("Enter port ");
+        int s = Integer.parseInt(reader.readLine());
+        Client client = new Client(ip, s);   //192.168.2.9 
     } 
 } 

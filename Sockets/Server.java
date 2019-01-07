@@ -1,5 +1,6 @@
 import java.net.*; 
 import java.io.*; 
+import java.util.*;
   
 public class Server 
 { 
@@ -34,7 +35,7 @@ public class Server
                 try
                 { 
                     line = in.readUTF(); 
-                    System.out.println(line); 
+                    System.out.println(socket.getInetAddress().toString()+ ": " +line); 
   
                 } 
                 catch(IOException i) 
@@ -56,6 +57,11 @@ public class Server
   
     public static void main(String args[]) 
     { 
-        Server server = new Server(5000); 
+        int x;
+        System.out.println("enter port number ");
+        Scanner sc = new Scanner(System.in);
+        x = sc.nextInt();
+
+        Server server = new Server(x); 
     } 
 } 
